@@ -7,7 +7,7 @@ WORKDIR /app
 
 RUN pip install --upgrade pip
 RUN pip install gunicorn 
-RUN pip install pipenv
+
 
 RUN which gunicorn || echo "Gunicorn not found!"
 
