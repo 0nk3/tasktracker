@@ -6,6 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 WORKDIR /app
 
 RUN pip install --upgrade pip
+RUN pip install django
 RUN pip install gunicorn 
 RUN pip install pipenv
 

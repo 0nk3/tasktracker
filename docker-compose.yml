@@ -2,6 +2,8 @@ version: '3.8'
 services:
   web:
     build: .
-    command: gunicorn tasktracker.wsgi:application -b 0.0.0.0:8000
+    command: gunicorn --bind
+    volumes:
+      - .:/app
     ports:
       - "${PORT:-8000}:8000"
