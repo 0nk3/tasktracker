@@ -6,11 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 WORKDIR /app
 
 RUN pip install --upgrade pip
-RUN pip install django
 RUN pip install gunicorn 
 RUN pip install pipenv
 
 COPY . /app/
 
 EXPOSE 8000
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "tasktracker.wsgi:application", "-b", "0.0.0.0:8000"]
