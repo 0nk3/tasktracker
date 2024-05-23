@@ -1,0 +1,28 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to Docker Hub (if pushing image)
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build Docker image (optional)
+        run: docker build -t your_username/my_app_image .
+      - name: Push Docker image to Heroku Container Registry (optional)
+        run: |
+          docker tag 0nk3/tasktrack registry.heroku.com/task_track/web
+          docker push registry.heroku.com/task_track/web
+      - name: Deploy to Heroku (using Heroku CLI)
+        uses: akarnokd/cloudflare-actions@v1  
+        with:
+          api_token: ${{ secrets.HEROKU_API_TOKEN }}
+          email: '0nk3.0nk3@gmail.com'
+          install_node: true  

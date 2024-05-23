@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    command: gunicorn myproject.wsgi:application -b 0.0.0.0:8000
+    ports:
+      - "${PORT:-8000}:8000"  
+    environment:
+      - DATABASE_URL: ${env:HEROKU_POSTGRES_URI}
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
