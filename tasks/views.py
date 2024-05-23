@@ -34,7 +34,7 @@ def task_complete(request, pk):
     task = Task.objects.get(pk=pk)
     task.completed = True
     task.save()
-    return render(request, 'tasks/task_complete.html')
+    return redirect('task_list')
 
 def task_delete_completed(request):
     Task.objects.filter(completed=True).delete()

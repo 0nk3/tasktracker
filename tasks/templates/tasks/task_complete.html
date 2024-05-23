@@ -1,7 +1,7 @@
 <h2>{{ task.title }}</h2>
 <p>{{ task.description }}</p>
 <p>Completed at: {{ task.completed_at }}</p>
-<form action="{% url 'task_edit' task.id %}" method="GET">
+<form action="{% url 'task_edit' task.pk %}" method="GET">
     <button type="submit"> Edit </button>
 </form>
 <form action="{% url 'task_delete' task.id %}" method="POST">
