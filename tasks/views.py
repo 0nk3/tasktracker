@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Task
 
 def task_list(request):
@@ -11,8 +11,9 @@ def task_new(request):
         description = request.POST.get('description')
         task = Task(title=title, description=description)
         task.save()
+        return redirect('task_list')
     return render(request, 'tasks/task_new.html')
-    
+
 def task_edit(request, pk):
     task = Task.objects.get(pk=pk)
     if request.method == "POST":
@@ -21,7 +22,7 @@ def task_edit(request, pk):
         task.title = title
         task.description = description
         task.save()
-        redirect('task_list')
+        return redirect('task_list')
     return render(request, 'tasks/task_edit.html', {'task': task})
 
 def task_delete(request, pk):

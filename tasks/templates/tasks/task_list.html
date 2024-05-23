@@ -1,6 +1,23 @@
+<h1> Task List </h1>
+
+<form action="{% url 'task_new' %}" method="GET">  {% csrf_token %}
+    <button type="submit"> Create New Task </button>
+</form>
+
+<br>
+
 {% for task in tasks %}
-    <h2>{{ task.title }}</h2>
-    <p>{{ task.description }}</p>
-    <a href="{% url 'tasks:task_edit' task.id %}">Edit</a>
-    <a href="{% url 'tasks:task_delete' task.id %}">Delete</a>
+    <h3>{{ task.title }}</h3>  <p>{{ task.description }}</p>
+    <form action="{% url 'task_complete' task.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit"> Mark as complete </button>
+    </form>
+    <form action="{% url 'task_edit' task.id %}" method="GET">
+        <button type="submit"> Edit </button>
+    </form>
+    <form action="{% url 'task_delete' task.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit"> Delete </button>
+    </form>
+    <hr>
 {% endfor %}
