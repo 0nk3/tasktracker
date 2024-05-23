@@ -15,15 +15,12 @@ jobs:
           username: '0nk3'
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker image
-        run: docker build -t 0nk3/django-task-tracker .
+        run: docker build -t 0nk3/django-task-tracker .  
       - name: Push Docker image to Docker Hub
         run: docker push 0nk3/django-task-tracker
       - name: Deploy to Heroku (using Heroku CLI)
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           api_token: ${{ secrets.HEROKU_API_TOKEN }}
-          dockerfile: Dockerfile  # Optional, specify Dockerfile path if non-standard
-          docker_image: 0nk3/django-task-tracker:latest  # Specify image to pull
-      - name: (Optional) Verify deployment (optional)
-        run: |
-          heroku run python manage.py test  # Example test command
+          docker_image: 0nk3/django-task-tracker:latest 
+          # (Optional) Set environment variables if need
