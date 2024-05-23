@@ -1,0 +1,1 @@
+web: gunicorn django-task-tracker.wsgi:application -b 0.0.0.0:$PORT
