@@ -1,1 +1,69 @@
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.eggs/
+*.egg-info/
+dist/
+build/
+develop-eggs/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+
+# PyInstaller / cx_Freeze
+build/
+dist/
+egg-info/
+
+# IDE and editor specific files
+.idea/
+.vscode/
+.project
+.pydevproject
+
+# Static files (will be created in manage.py collectstatic)
+static/
+
+# Database files
+db.sqlite3
+db.sqlite3-journal
+
+# Local documentation
+docs/_build/
+
+# Coverage reports
+.coverage
+coverage.xml
+
+# OS specific temporary files
+*.swp
+*.swo
+*.log
+
+# Ignore all requirements files. They should be generated based on your development environment.
+requirements*
+
+# Ignore any virtual environment folder
+env/
+django-env/
+
+# Ignore migrations files if you prefer to manage them manually
+# migrations/
+
+# Local development settings
+local_settings.py
+
+# Secret key, never commit this!
+*.key
