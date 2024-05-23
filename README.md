@@ -34,7 +34,7 @@ Onke Fanti
 
     ```
 
-    git clone https://github.com/yourusername/tasktracker.git
+    git clone https://github.com/0nk3/tasktracker.git
 
     cd tasktracker
 
@@ -49,7 +49,6 @@ Onke Fanti
     pip install django
 
     ```
-
  
 
 3. Run migrations:
