@@ -18,7 +18,7 @@ jobs:
         run: docker build -t 0nk3/django-task-tracker .
       - name: Push Docker image to Heroku Container Registry (optional)
         run: |
-          docker tag 0nk3/django-task-track registry.heroku.com/django-task-tracker/web
+          docker tag 0nk3/django-task-tracker registry.heroku.com/django-task-tracker/web
           docker push registry.heroku.com/django-task-tracker/web
       - name: Deploy to Heroku (using Heroku CLI)
         uses: akhileshns/heroku-deploy@v3.12.12
