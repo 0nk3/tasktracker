@@ -1,23 +1,17 @@
-name: Deploy to Heroku
+name: Deploy
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Login to Heroku (using Heroku CLI)
-        uses: heroku/login@v1
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.13.15
         with:
-          api_token: ${{ secrets.HEROKU_API_TOKEN }}
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Collect static files (if applicable)
-        run: python manage.py collectstatic --no-input
-      - name: Deploy to Heroku
-        uses: heroku/deploy@v1
-        with:
-          app_name: django-task-tracker
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "django-task-tracker"
+          heroku_email: "0nk3.0nk3@gmail.com"
+          
