@@ -21,7 +21,7 @@ jobs:
           docker tag 0nk3/django-task-track registry.heroku.com/django-task-tracker/web
           docker push registry.heroku.com/django-task-tracker/web
       - name: Deploy to Heroku (using Heroku CLI)
-        uses: akarnokd/cloudflare-actions@v1  
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           api_token: ${{ secrets.HEROKU_API_TOKEN }}
           email: '0nk3.0nk3@gmail.com'
