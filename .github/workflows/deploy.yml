@@ -19,7 +19,7 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push 0nk3/django-task-tracker
       - name: Deploy to Heroku (using Heroku CLI)
-        uses: akhileshns/heroku-buildpack-docker@v1.4.3  # Switch to this action
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           api_token: ${{ secrets.HEROKU_API_TOKEN }}
           dockerfile: Dockerfile  # Optional, specify Dockerfile path if non-standard
